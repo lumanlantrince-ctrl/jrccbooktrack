@@ -455,6 +455,25 @@ footer{background:#063f30!important;color:#c7d8cd!important;border-top:1px solid
 .workspace-side .side-link .badge-count{margin-left:auto;min-width:20px;height:20px;padding:0 6px;border:1px solid rgba(255,255,255,.14);border-radius:10px;background:#c94d43;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;box-sizing:border-box}
 @media(max-width:850px){.catalog-search-main{min-width:100%}.workspace-side .side-link{flex:0 0 auto}.catalog-search-btn{min-width:72px}}
 @media(max-width:480px){.catalog-search-main input{height:36px}.catalog-search-btn{height:36px;min-width:66px;padding:0 10px}.catalog-search-btn svg{width:13px;height:13px}}
+
+/* ===== JRCC Premium Dashboard Upgrade ===== */
+.admin-content{background:linear-gradient(180deg,#f8fbf8 0%,#f3f7f4 100%)}
+.admin-side-link{position:relative;overflow:hidden;transition:transform .2s ease,background .2s ease,color .2s ease}
+.admin-side-link:hover{transform:translateX(3px)}
+.admin-side-link.active:after{content:"";position:absolute;right:0;top:18%;height:64%;width:3px;background:#d7b45a;border-radius:3px;box-shadow:0 0 12px rgba(215,180,90,.45)}
+.premium-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:14px}
+.premium-stat{position:relative;overflow:hidden;border:1px solid rgba(6,67,50,.09);border-radius:14px;padding:17px;background:#fff;box-shadow:0 8px 24px rgba(6,67,50,.06);transition:transform .22s ease,box-shadow .22s ease}
+.premium-stat:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(6,67,50,.11)}
+.premium-stat:before{content:"";position:absolute;right:-24px;top:-24px;width:90px;height:90px;border-radius:50%;background:rgba(215,180,90,.10)}
+.premium-stat .ps-icon{font-size:22px;margin-bottom:8px}.premium-stat .ps-label{font-size:11px;color:#819187;text-transform:uppercase;letter-spacing:.08em}.premium-stat .ps-value{font-size:28px;font-weight:800;color:#123f32;line-height:1.1;margin-top:4px}.premium-stat .ps-sub{font-size:10px;color:#819187;margin-top:5px}
+.dashboard-two{display:grid;grid-template-columns:1.35fr .85fr;gap:14px;margin-bottom:14px}
+.chart-card,.quick-card{background:#fff;border:1px solid rgba(6,67,50,.09);border-radius:14px;box-shadow:0 8px 24px rgba(6,67,50,.05);padding:16px}
+.chart-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}.chart-title h3{margin:0;font-size:14px;color:#153f33}.chart-title span{font-size:10px;color:#819187}
+.bar-chart{display:flex;align-items:flex-end;gap:10px;height:150px;padding:8px 2px 0}.bar-col{flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:6px}.bar{width:100%;max-width:34px;min-height:4px;background:linear-gradient(180deg,#d7b45a,#064332);border-radius:7px 7px 3px 3px;transform-origin:bottom;animation:barRise .65s cubic-bezier(.2,.8,.2,1) both}.bar-value{font-size:9px;color:#456056}.bar-label{font-size:9px;color:#819187}.quick-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.quick-action{border:1px solid #e3ebe6;background:#f9fbfa;border-radius:11px;padding:12px;text-align:left;cursor:pointer;transition:all .2s ease;color:#153f33}.quick-action:hover{border-color:#d7b45a;background:#fff;transform:translateY(-2px)}.quick-action b{display:block;font-size:12px}.quick-action span{font-size:10px;color:#819187}.attention-item{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid #edf1ee}.attention-item:last-child{border-bottom:0}.attention-dot{width:8px;height:8px;border-radius:50%;background:#d7b45a;margin-top:5px;flex:none}.attention-dot.red{background:#b84a4a}.attention-item b{font-size:11px}.attention-item p{font-size:10px;color:#819187;margin:2px 0 0}.email-center{display:grid;grid-template-columns:1fr 1fr;gap:14px}.email-template{border:1px solid #e3ebe6;border-radius:12px;padding:14px;background:#fbfcfb}.email-template h4{margin:0 0 5px;font-size:13px}.email-template p{font-size:11px;color:#6e7c75;line-height:1.55;margin:0 0 12px}.email-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:11px 0;border-bottom:1px solid #edf1ee}.email-row:last-child{border-bottom:0}.email-meta strong{font-size:11px}.email-meta small{display:block;color:#819187;font-size:9px;margin-top:2px}.pulse-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#d7b45a;box-shadow:0 0 0 0 rgba(215,180,90,.55);animation:pulseDot 1.8s infinite}
+@keyframes barRise{from{transform:scaleY(0);opacity:.2}to{transform:scaleY(1);opacity:1}}@keyframes pulseDot{70%{box-shadow:0 0 0 7px rgba(215,180,90,0)}100%{box-shadow:0 0 0 0 rgba(215,180,90,0)}}
+@media(max-width:1000px){.premium-grid{grid-template-columns:repeat(2,1fr)}.dashboard-two,.email-center{grid-template-columns:1fr}}
+@media(max-width:600px){.premium-grid{grid-template-columns:1fr 1fr}.premium-stat .ps-value{font-size:22px}.quick-grid{grid-template-columns:1fr}.bar-chart{gap:5px}}
+
 </style>
 </head>
 <body>
@@ -1118,6 +1137,7 @@ function renderAdmin(){
         <button class="admin-side-link ${adminTab==='loans'?'active':''}" data-t="loans">▣ <span>Loan Records</span></button>
         <button class="admin-side-link ${adminTab==='members'?'active':''}" data-t="members">♙ <span>Members</span></button>
         <button class="admin-side-link ${adminTab==='reports'?'active':''}" data-t="reports">▥ <span>Reports</span></button>
+        <button class="admin-side-link ${adminTab==='email'?'active':''}" data-t="email">✉ <span>Email Center</span></button>
         <button class="admin-side-link ${adminTab==='announcements'?'active':''}" data-t="announcements">🔔 <span>Announcements</span></button>
         <div class="admin-side-quote">Books are a bridge<br>between where you are<br>and where God wants<br>you to be.<b>✦</b></div>
       </aside>
@@ -1130,44 +1150,51 @@ function renderAdmin(){
   else if (adminTab==='loans') renderAdminLoans(host);
   else if (adminTab==='members') renderAdminMembers(host);
   else if (adminTab==='reports') renderAdminReports(host);
+  else if (adminTab==='email') renderAdminEmailCenter(host);
   else renderAdminAnnouncements(host);
 }
 
 function renderAdminOverview(host){
   const totalCopies = books.reduce((s,b)=>s+b.copies,0);
+  const available = books.reduce((s,b)=>s+b.available,0);
   const onLoan = loans.filter(l=>computeStatus(l)!=='returned').length;
   const overdue = loans.filter(l=>computeStatus(l)==='overdue').length;
-  host.innerHTML = `
-    <div class="section-head"><h2 style="font-size:20px;">Library Overview</h2></div>
-    <div class="stat-strip">
-      <div class="stat-cell acc-gold"><div class="num" data-count="${books.length}">0</div><div class="lbl">Titles</div></div>
-      <div class="stat-cell acc-blue"><div class="num" data-count="${totalCopies}">0</div><div class="lbl">Total Copies</div></div>
-      <div class="stat-cell acc-green"><div class="num" data-count="${onLoan}">0</div><div class="lbl">On Loan</div></div>
-      <div class="stat-cell ${overdue?'warn':'acc-gold'}"><div class="num" data-count="${overdue}">0</div><div class="lbl">Overdue</div></div>
+  const members = accounts.filter(a=>a.role!=='admin').length;
+  const waiting = reservations.filter(r=>r.status==='waiting').length;
+  const recent = loans.slice().sort((a,b)=>b.borrowedAt-a.borrowedAt).slice(0,6);
+  const days=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  const now=new Date(); const dayData=[];
+  for(let i=6;i>=0;i--){ const d=new Date(now); d.setHours(0,0,0,0); d.setDate(d.getDate()-i); const next=d.getTime()+86400000; const count=loans.filter(l=>l.borrowedAt>=d.getTime()&&l.borrowedAt<next).length; dayData.push({label:days[d.getDay()],count}); }
+  const max=Math.max(1,...dayData.map(x=>x.count));
+  const urgent=[];
+  if(overdue) urgent.push(`<div class="attention-item"><span class="attention-dot red"></span><div><b>${overdue} overdue loan${overdue===1?'':'s'}</b><p>Follow up with members and process returns.</p></div></div>`);
+  if(waiting) urgent.push(`<div class="attention-item"><span class="attention-dot"></span><div><b>${waiting} reservation${waiting===1?'':'s'} waiting</b><p>Members are waiting for unavailable books.</p></div></div>`);
+  if(!urgent.length) urgent.push(`<div class="empty-mini">Everything looks clear. <span class="pulse-dot"></span></div>`);
+  host.innerHTML=`
+    <div class="section-head"><div><h2 style="font-size:20px;margin-bottom:3px;">Library Dashboard</h2><span style="font-size:10px;color:#819187;">A quick view of today's library activity</span></div><span class="pulse-dot" title="Dashboard live"></span></div>
+    <div class="premium-grid">
+      <div class="premium-stat"><div class="ps-icon">📚</div><div class="ps-label">Book Titles</div><div class="ps-value" data-count="${books.length}">0</div><div class="ps-sub">${totalCopies} total copies</div></div>
+      <div class="premium-stat"><div class="ps-icon">👥</div><div class="ps-label">Members</div><div class="ps-value" data-count="${members}">0</div><div class="ps-sub">Registered users</div></div>
+      <div class="premium-stat"><div class="ps-icon">📖</div><div class="ps-label">Active Loans</div><div class="ps-value" data-count="${onLoan}">0</div><div class="ps-sub">${available} copies available</div></div>
+      <div class="premium-stat"><div class="ps-icon">⏰</div><div class="ps-label">Overdue</div><div class="ps-value" data-count="${overdue}">0</div><div class="ps-sub">Needs attention</div></div>
     </div>
-    <div class="mini-section" style="margin-bottom:14px;">
-      <div class="mini-section-head"><h3>🔔 Admin Notifications</h3><span style="font-size:10px;color:#819187;">${overdue + reservations.filter(r=>r.status==='waiting').length} attention items</span></div>
-      <div class="notice-list">
-        ${overdue?`<div class="notice"><strong>${overdue} overdue loan${overdue===1?'':'s'}</strong><p>Review overdue records and follow up with members.</p></div>`:''}
-        ${reservations.filter(r=>r.status==='waiting').length?`<div class="notice"><strong>${reservations.filter(r=>r.status==='waiting').length} reservation${reservations.filter(r=>r.status==='waiting').length===1?'':'s'} waiting</strong><p>Members are waiting for books that are currently unavailable.</p></div>`:''}
-        ${!overdue&&!reservations.filter(r=>r.status==='waiting').length?'<div class="empty-mini">No urgent notifications.</div>':''}
-      </div>
+    <div class="dashboard-two">
+      <div class="chart-card"><div class="chart-title"><h3>Borrowing Activity</h3><span>Last 7 days</span></div><div class="bar-chart">${dayData.map(x=>`<div class="bar-col"><span class="bar-value">${x.count}</span><div class="bar" style="height:${Math.max(5,(x.count/max)*110)}px"></div><span class="bar-label">${x.label}</span></div>`).join('')}</div></div>
+      <div class="quick-card"><div class="chart-title"><h3>Quick Actions</h3><span>Shortcuts</span></div><div class="quick-grid">
+        <button class="quick-action" data-quick="books"><b>＋ Add Book</b><span>Update catalog</span></button>
+        <button class="quick-action" data-quick="loans"><b>↩ Loan Records</b><span>Process returns</span></button>
+        <button class="quick-action" data-quick="members"><b>♙ Members</b><span>View accounts</span></button>
+        <button class="quick-action" data-quick="email"><b>✉ Email Center</b><span>Send reminders</span></button>
+      </div></div>
     </div>
-    <div class="card">
-      <div class="section-head"><h2 style="font-size:16px;">Recent Activity</h2></div>
-      <div class="tbl-wrap"><table>
-        <thead><tr><th>Book</th><th>Student</th><th>Borrowed</th><th>Status</th></tr></thead>
-        <tbody>
-        ${loans.slice().sort((a,b)=>b.borrowedAt-a.borrowedAt).slice(0,8).map(l=>{
-          const st = computeStatus(l);
-          return `<tr><td>${esc(l.bookTitle)}</td><td>${esc(l.studentName)}</td><td>${fmtDate(l.borrowedAt)}</td><td><span class="status-chip ${st}">${st==='onloan'?'On loan':st==='overdue'?'Overdue':'Returned'}</span></td></tr>`;
-        }).join('')}
-        ${loans.length===0?'<tr><td colspan="4" style="text-align:center;color:var(--ink-faint);padding:30px;">No activity yet.</td></tr>':''}
-        </tbody>
-      </table></div>
-    </div>
-  `;
-  host.querySelectorAll('[data-count]').forEach(el=>animateCount(el, parseInt(el.dataset.count,10)||0));
+    <div class="dashboard-two">
+      <div class="card"><div class="section-head"><h2 style="font-size:15px;">Recent Activity</h2><span style="font-size:10px;color:#819187;">Latest transactions</span></div><div class="tbl-wrap"><table><thead><tr><th>Book</th><th>Student</th><th>Date</th><th>Status</th></tr></thead><tbody>
+      ${recent.map(l=>{const st=computeStatus(l);return `<tr><td>${esc(l.bookTitle)}</td><td>${esc(l.studentName)}</td><td>${fmtDate(l.borrowedAt)}</td><td><span class="status-chip ${st}">${st==='onloan'?'On loan':st==='overdue'?'Overdue':'Returned'}</span></td></tr>`}).join('')||'<tr><td colspan="4" style="text-align:center;color:var(--ink-faint);padding:26px;">No activity yet.</td></tr>'}
+      </tbody></table></div></div>
+      <div class="quick-card"><div class="chart-title"><h3>Attention Center</h3><span>${overdue+waiting} item${overdue+waiting===1?'':'s'}</span></div>${urgent.join('')}</div>
+    </div>`;
+  host.querySelectorAll('[data-count]').forEach(el=>animateCount(el,parseInt(el.dataset.count,10)||0));
+  host.querySelectorAll('[data-quick]').forEach(b=>b.onclick=()=>{adminTab=b.dataset.quick;renderAdmin();});
 }
 
 /* Animates a stat number counting up from 0 to its target value. */
@@ -1354,6 +1381,18 @@ function renderAdminMembers(host){
   host.querySelectorAll('[data-member]').forEach(row=>{
     row.onclick = ()=>openProfileModal(row.dataset.member);
   });
+}
+
+function renderAdminEmailCenter(host){
+  const active=loans.filter(l=>!l.returnedAt).sort((a,b)=>a.dueAt-b.dueAt);
+  const due=active.filter(l=>computeStatus(l)==='onloan');
+  const overdue=active.filter(l=>computeStatus(l)==='overdue');
+  host.innerHTML=`<div class="section-head"><div><h2 style="font-size:20px;margin-bottom:3px;">Email Center</h2><span style="font-size:10px;color:#819187;">Prepare Gmail reminders for members with active loans</span></div><button class="btn btn-gold" id="sendAllDue">✉ Send Reminder Queue</button></div>
+    <div class="email-center"><div class="email-template"><h4>⏰ Due Soon</h4><p>Members whose books are still on loan. Select a member to open a pre-filled Gmail message.</p>${due.map(l=>{const m=accounts.find(a=>a.username===l.username);return `<div class="email-row"><div class="email-meta"><strong>${esc(m?.fullname||l.studentName)}</strong><small>${esc(l.bookTitle)} · Due ${fmtDate(l.dueAt)}</small></div><button class="btn btn-sm btn-gold" data-mail="${l.id}">Email</button></div>`}).join('')||'<div class="empty-mini">No active due reminders.</div>'}</div>
+    <div class="email-template"><h4>🔴 Overdue</h4><p>These loans have passed their due date and may need immediate follow-up.</p>${overdue.map(l=>{const m=accounts.find(a=>a.username===l.username);return `<div class="email-row"><div class="email-meta"><strong>${esc(m?.fullname||l.studentName)}</strong><small>${esc(l.bookTitle)} · Due ${fmtDate(l.dueAt)}</small></div><button class="btn btn-sm btn-danger" data-mail="${l.id}">Email</button></div>`}).join('')||'<div class="empty-mini">No overdue reminders.</div>'}</div></div>`;
+  host.querySelectorAll('[data-mail]').forEach(b=>b.onclick=()=>sendLoanReminder(b.dataset.mail));
+  const allBtn=document.getElementById('sendAllDue');
+  if(allBtn) allBtn.onclick=()=>{ const queue=[...overdue,...due]; if(!queue.length){toast('No reminder emails to prepare.');return;} const first=queue.find(l=>accountEmail(l.username)); if(first){sendLoanReminder(first); toast(`${queue.length} reminder${queue.length===1?'':'s'} in queue. Gmail opened for the first member.`);} else toast('No member email addresses are available yet.'); };
 }
 
 function renderAdminReports(host){
